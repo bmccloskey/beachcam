@@ -26,11 +26,11 @@ remote_dir2 <- "ftp://ftpext.usgs.gov/from_pub/er/sandkey/"
 local_dir <- paste0("./sandkey/images/", date, "_", hour, "/")
 dir.create(local_dir)
 
+report <- cleanup <- ""
+
 manifest_file <- paste0("status_", date, "_", hour, ".txt")
 local_manifest <- paste0(local_dir, manifest_file)
 remote_manifest <- paste0(remote_dir, manifest_file)
-
-report <- cleanup <- ""
 
 # download hourly manifest -- try three times
 attempt <- 1
@@ -96,15 +96,16 @@ if (!file.exists(local_manifest) | !file.info(local_manifest)$size) {
       #}
     }
   }
+  if (cleanup != "") {
+    write(cleanup, paste0(local_dir, "cleanup.txt"))
+    attempt <- err <- 1
+    while (err & attempt <= 3) {
+      attempt <- attempt + 1
+      err <- try (system(paste0("curl -T ", local_dir, "cleanup.txt ftp://ftpint.usgs.gov/pub/er/fl/st.petersburg/sandkey/", date, "_", hour, "_cleanup.bat")))
+    }
+    if (err) report <- paste0(report, "cleanup.bat file NOT transferred to FTP server")
+  }
 }
-
-write(cleanup, paste0(local_dir, "cleanup.txt"))
-attempt <- err <- 1
-while (err & attempt <= 3) {
-  attempt <- attempt + 1
-  err <- try (system(paste0("curl -T ", local_dir, "cleanup.txt ftp://ftpint.usgs.gov/pub/er/fl/st.petersburg/sandkey/", date, "_", hour, "_cleanup.bat")))
-}
-if (err) report <- paste0(report, "cleanup.bat file NOT transferred to FTP server")
 
 #system("umount /Volumes/Coastal_Change_Hazards") #Doesn't work when run from cron
 
