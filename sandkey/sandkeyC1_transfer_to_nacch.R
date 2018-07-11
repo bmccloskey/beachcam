@@ -8,6 +8,9 @@
 #--------------
 
 print("These libraries must be installed: tools, RCurl")
+# Required libraries. If not present, run:
+# install.packages("tools")
+# install.packages("RCurl")
 library (tools)
 library (RCurl)
 

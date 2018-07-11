@@ -8,6 +8,8 @@
 #--------------
 
 print("These libraries must be installed: RCurl")
+# Required libraries. If not present, run:
+# install.packages("RCurl")
 library (RCurl)
 
 remote_dir <- "ftp://ftpint.usgs.gov/from_pub/er/madbeach/"
