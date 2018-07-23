@@ -74,7 +74,7 @@ if (cleanup != "") {
   attempt <- err <- 1
   while (err & attempt <= 3) {
     attempt <- attempt + 1
-    err <- try (system(paste0("curl -T ", cleanup_dir, "cleanup4am.xt ftp://ftpint.usgs.gov/pub/er/fl/st.petersburg/madbeach/cleanup4am.bat")))
+    err <- try (system(paste0("curl -T ", cleanup_dir, "cleanup4am.txt ftp://ftpint.usgs.gov/pub/er/fl/st.petersburg/madbeach/cleanup4am.bat")))
   }
   if (err) report <- paste0(report, "cleanup4am.bat file NOT transferred to FTP server")
 }
