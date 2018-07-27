@@ -15,7 +15,7 @@ library (tools)
 library (RCurl)
 
 # process batch from [offset] hours previous; time as "HH00" GMT
-offset <- 60 * 60 * 1
+offset <- 60 * 60 * 2
 process_time <- Sys.time() - offset
 hour   <- format(process_time, "%H30", "GMT")
 hour_s <- format(process_time, "%H3", "GMT")
@@ -66,7 +66,8 @@ if (inherits(err, "try-error")) {
     for (i in 1:length(file_list)) {
       file <- strsplit(file_list[i], " ")[[1]][5]
       local_file <- paste0(local_dir, file)
-  
+      remote_file <- paste0(remote_dir, file)
+      
       # retrieve files from FTP -- try three times
       attempt <- 1
       while ((!file.exists(local_file) | !file.info(local_file)$size) & attempt <= 3) {

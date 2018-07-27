@@ -60,7 +60,8 @@ if (!file.exists(local_manifest) | !file.info(local_manifest)$size) {
   for (i in 1:length(file_list)) {
     file <- strsplit(file_list[i], " ")[[1]][5]
     local_file <- paste0(local_dir, file)
-
+    remote_file <- paste0(remote_dir, file)
+    
     # retrieve files from FTP -- try three times
     attempt <- 1
     while ((!file.exists(local_file) | !file.info(local_file)$size) & attempt <= 3) {
