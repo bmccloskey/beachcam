@@ -15,7 +15,7 @@ library (tools)
 library (RCurl)
 
 # process batch from [offset] hours previous; time as "HH00" GMT
-offset <- 60 * 60 * 2
+offset <- 60 * 60 * 1
 process_time <- Sys.time() - offset
 hour  <- format(process_time, "%H00", "GMT")
 date  <- format(process_time, "%Y%m%d", "GMT")
