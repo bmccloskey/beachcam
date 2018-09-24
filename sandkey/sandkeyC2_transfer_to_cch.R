@@ -117,4 +117,4 @@ if (!file.exists(local_manifest) | !file.info(local_manifest)$size) {
 if (report != "")
   system(paste0("echo 'Subject: sandkeyC2 image transfer
 
-", report, "' | /usr/sbin/sendmail bmccloskey@usgs.gov,jenniferbrown@usgs.gov"))
+", report, "' | /usr/sbin/sendmail bmccloskey@usgs.gov, jenniferbrown@usgs.gov, jbirchler@usgs.gov"))

@@ -124,4 +124,4 @@ if (inherits(err, "try-error")) {
 if (report != "")
   system(paste0("echo 'Subject: sandkeyC1 image transfer
 
-", report, "' | /usr/sbin/sendmail bmccloskey@usgs.gov,jenniferbrown@usgs.gov"))
+", report, "' | /usr/sbin/sendmail bmccloskey@usgs.gov, jenniferbrown@usgs.gov, jbirchler@usgs.gov"))

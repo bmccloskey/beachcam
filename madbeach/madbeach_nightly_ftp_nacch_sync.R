@@ -83,4 +83,4 @@ if (cleanup != "") {
 if (report != "")
   system(paste0("echo 'Subject: madbeach FTP/NACCH image sync transfer
 
-", report, "' | /usr/sbin/sendmail bmccloskey@usgs.gov,jenniferbrown@usgs.gov"))
+", report, "' | /usr/sbin/sendmail bmccloskey@usgs.gov, jenniferbrown@usgs.gov, jbirchler@usgs.gov"))

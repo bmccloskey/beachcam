@@ -85,4 +85,4 @@ if (cleanup != "") {
 if (report != "")
   system(paste0("echo 'Subject: sandkey FTP/Coastal_Change_Hazards image sync transfer
 
-", report, "' | /usr/sbin/sendmail bmccloskey@usgs.gov,jenniferbrown@usgs.gov"))
+", report, "' | /usr/sbin/sendmail bmccloskey@usgs.gov, jenniferbrown@usgs.gov, jbirchler@usgs.gov"))
