@@ -21,14 +21,14 @@ indices <- grep(searchstring, ftp_contents)
 ftp_files <- sub(searchstring, "\\1", ftp_contents[indices])
 print(paste("Files found on eFTP server:", length(ftp_files)))
 
-if (!dir.exists("/Volumes/NACCH")) {
-  system("open 'smb://gs.doi.net/stpetersburgfl-g/NACCH'")
+if (!dir.exists("/Volumes/Archive")) {
+  system("open 'smb://gs.doi.net/stpetersburgfl-g/NACCH/Archive'")
   Sys.sleep(45) # Wait to mount NAACH
 }
 
 report <- cleanup <- ""
 
-base_dir <- "/Volumes/NACCH/Archive/Data/2016/2016-363-DD_20161028/madbeach/"
+base_dir <- "/Volumes/Archive/Data/2016/2016-363-DD_20161028/madbeach/"
 if (dir.exists(base_dir))
   for (i in 1:length(ftp_files)) {
     tokens <- unlist(strsplit(ftp_files[i], "\\."))

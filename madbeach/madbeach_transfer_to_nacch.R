@@ -44,12 +44,12 @@ while ((!file.exists(local_manifest) | !file.info(local_manifest)$size) & attemp
 if (!file.exists(local_manifest) | !file.info(local_manifest)$size) {
   report <- paste("Hourly image transfer failed for", date, hour, "-- no manifest file retrieved.")
 } else {
-  if (!dir.exists("/Volumes/NACCH")) {
-    system("open 'smb://gs.doi.net/stpetersburgfl-g/NACCH'")
+  if (!dir.exists("/Volumes/Archive")) {
+    system("open 'smb://gs.doi.net/stpetersburgfl-g/NACCH/Archive'")
     Sys.sleep(45) # Wait to mount NAACH
   }
-  nacch_dir <- paste0("/Volumes/NACCH/Archive/Data/2016/2016-363-DD_20161028/madbeach/", year, "/c1/", doy, "_", month, ".", day, "/")
-  nacch_dir2 <- paste0("/Volumes/NACCH/Archive/Data/2016/2016-363-DD_20161028/madbeach/", year, "/cx/", doy, "_", month, ".", day, "/")
+  nacch_dir <- paste0("/Volumes/Archive/Data/2016/2016-363-DD_20161028/madbeach/", year, "/c1/", doy, "_", month, ".", day, "/")
+  nacch_dir2 <- paste0("/Volumes/Archive/Data/2016/2016-363-DD_20161028/madbeach/", year, "/cx/", doy, "_", month, ".", day, "/")
   dir.create(nacch_dir)
   dir.create(nacch_dir2)
   file_list <- scan(local_manifest, "character", sep = "\n")
