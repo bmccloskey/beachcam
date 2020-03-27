@@ -16,7 +16,7 @@ remote_dir <- "ftp://ftpint.usgs.gov/from_pub/er/sandkey/"
 
 ftp_output <- getURL(remote_dir)
 ftp_contents <- strsplit(ftp_output, "\r*\n")[[1]]
-searchstring <- ".*([0-9]{10}\\.[A-Za-z]{3}\\.[A-Za-z]{3}\\.[0-9]{2}_[0-9]{2}_[03][0-9]_[0-9]{2}\\.GMT\\.20[1-2][7-9]\\.sandkey\\.c(1|2|x)\\.(bright|dark|snap|timex|var|cBathy|runup75|runup100|runup125|runup175)\\.(jpg|mat)$)"
+searchstring <- ".*([0-9]{10}\\.[A-Za-z]{3}\\.[A-Za-z]{3}\\.[0-9]{2}_[0-9]{2}_[03][0-9]_[0-9]{2}\\.GMT\\.20[1-2][0-9]\\.sandkey\\.c(1|2|x)\\.(bright|dark|snap|timex|var|cBathy|runup75|runup100|runup125|runup175)\\.(jpg|mat)$)"
 indices <- grep(searchstring, ftp_contents)
 ftp_files <- sub(searchstring, "\\1", ftp_contents[indices])
 print(paste("Files found on eFTP server:", length(ftp_files)))
