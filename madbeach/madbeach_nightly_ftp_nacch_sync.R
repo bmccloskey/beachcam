@@ -22,7 +22,7 @@ ftp_files <- sub(searchstring, "\\1", ftp_contents[indices])
 print(paste("Files found on eFTP server:", length(ftp_files)))
 
 if (!dir.exists("/Volumes/Archive")) {
-  system("open 'smb://gs.doi.net/stpetersburgfl-g/NACCH/Archive'")
+  system("open 'smb://gs.doi.net/stpetersburgfl-g/Coastal_Change_Hazards/Archive'")
   Sys.sleep(45) # Wait to mount NAACH
 }
 
